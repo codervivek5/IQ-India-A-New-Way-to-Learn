@@ -1,7 +1,7 @@
-from account.views import *
-from django.urls import path 
+from django.urls import path  # type: ignore
+from . import views
 
 urlpatterns = [
-    
-    path('signup/',signup,name='signup')
+    path('signup/', views.user_signup, name='signup'),
+    path('login/', views.user_login, name='login'),  # Renamed function
 ]
