@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-4">
+      {% for d in data %}
+      <div class="col-md-4 col-sm-6">
+        <div class="card shadow-sm border-0 rounded-lg">
+          <img src="{{d.stu_img.url}}" class="card-img-top rounded-top" alt="missing image" style="height: 250px; object-fit: cover;">
+
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">{{ d.stu_name }} - {{ d.stu_roll }}</h5>
+            <h6 class="text-muted">{{ d.stu_mob }}</h6>
+            <p class="card-text text-truncate" style="max-width: 100%;">{{ d.stu_clg_name }}</p>
+            <p class="card-text text-truncate">{{ d.stu_description|truncatewords:10 }}</p>
+            <a href="{% url 'stu_details' d.id %}" class="btn btn-primary btn-sm w-100">View More</a>
+            
+            <form method="POST" action="{% url 'delete_stu' d.id %}" class="mt-2">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm w-100">Delete</button>
+            </form>
+            
+            <a href="{% url 'stu_update' d.id %}" class="btn btn-success btn-sm w-100 mt-2">Update</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+</style>
+
+{% endblock content %}

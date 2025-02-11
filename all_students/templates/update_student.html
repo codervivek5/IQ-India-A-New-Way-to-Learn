@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  <div>
+    <form class="form-control" method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="border w-50 p-4 bg-light shadow-lg" >
+    <h6>Student Registration Here</h6>
+    <hr>
+    <div class="mt-2">
+      {{form.stu_img.label_tag}}
+      {{form.stu_img}}
+    </div>
+
+    <div class="mt-2">
+      {{form.stu_id.label_tag}}
+      {{form.stu_id}}
+    </div>
+
+    <div class="mt-2">
+      {{form.stu_name.label_tag}}
+      {{form.stu_name}}
+    </div>
+
+    <div class="mt-2">
+      {{form.stu_roll.label_tag}}
+      {{form.stu_roll}}
+    </div>
+
+    <div class="mt-2">
+      {{form.stu_mob.label_tag}}
+      {{form.stu_mob}}
+    </div>
+
+    <div class="mt-2">
+      {{form.stu_clg_name.label_tag}}
+      {{form.stu_clg_name}}
+    </div>
+
+    <div class="mt-2" shadow>
+      {{form.stu_description.label_tag}}
+      {{form.stu_description}}
+    </div>
+
+
+    <input class="btn btn-success mt-2" type="submit" value="Register Now">
+  </div>
+    </form>
+  
+
+  </div>
+ 
+{% endblock content %} 
+  

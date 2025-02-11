@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for d in data %}
+<div class="col-12 mt-1">
+  <div class="card" style="width: 100%">
+  <img height="500px" width="300px" src="{{d.stu_img.url}}" class="card-img-top" alt="missings">
+  <div class="card-body">
+    <h5 class="card-title">{{d.stu_name}} - {{d.stu_roll}}</h5>
+    <h6 class="card-title">{{d.stu_mob}}</h6>
+    <p class="card-text">{{d.stu_clg_name}}</p>
+    <p class="card-text">{{d.stu_description}}</p> 
+
+    
+    {% comment %} <a href="{% url 'delete_stu' d.id %}" class="btn btn-danger ">Delete</a> {% endcomment %}
+    <form method="POST" action="{% url 'delete_stu' d.id %}">
+      {% csrf_token %}
+      <button class="btn btn-danger type=submit">Delete</button>
+    </form>
+  </div> 
+  </div>
+</div>
+{% endfor %}
+
+<section> 
+  <div class="container-fluid">
+    <div class="row">
+    {% for d in all_data %}
+    <div class="col-4 mt-4">
+      <div class="card" style="width: 18rem;">
+      <img height="300px" width="300px" src="{{d.stu_img.url}}" class="card-img-top" alt="missings">
+      <div class="card-body">
+        <h5 class="card-title">{{d.stu_name}} - {{d.stu_roll}}</h5>
+        <h6 class="card-title">{{d.stu_mob}}</h6>
+        <p class="card-text">{{d.stu_clg_name}}</p>
+        <p class="card-text">{{d.stu_description|truncatewords:5}}</p> <a href="{% url 'stu_details' d.id %}">ViweMore</a>
+
+        
+        {% comment %} <a href="{% url 'delete_stu' d.id %}" class="btn btn-danger ">Delete</a> {% endcomment %}
+        <form method="POST" action="{% url 'delete_stu' d.id %}">
+          {% csrf_token %}
+          <button class="btn btn-danger type=submit">Delete</button>
+        </form>
+      </div> 
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Student Registration</h4>
+                </div>
+                <div class="card-body bg-light">
+                    <form class="form-control p-4" method="post" action="" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            {{ form.stu_img.label_tag }}
+                            {{ form.stu_img }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            {{ form.stu_id.label_tag }}
+                            {{ form.stu_id }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            {{ form.stu_name.label_tag }}
+                            {{ form.stu_name }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            {{ form.stu_roll.label_tag }}
+                            {{ form.stu_roll }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            {{ form.stu_mob.label_tag }}
+                            {{ form.stu_mob }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            {{ form.stu_clg_name.label_tag }}
+                            {{ form.stu_clg_name }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            {{ form.stu_description.label_tag }}
+                            {{ form.stu_description }}
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <input class="btn btn-success btn-lg w-100" type="submit" value="Register Now">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
