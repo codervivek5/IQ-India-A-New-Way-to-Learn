@@ -1,0 +1,84 @@
+{% extends "./base.html" %}
+
+{% block title %}Student Registration{% endblock title %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Student Registration Card -->
+            <div class="card">
+                <!-- Card Header -->
+                <div class="card-header text-center bg-primary text-white">
+                    <h3>Student Registration Form</h3>
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+
+
+                    <!-- Student Registration Form -->
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {% csrf_token %}  <!-- CSRF Token for security -->
+
+                        <!-- Photo Upload Field -->
+                        <div class="form-group">
+                            <label for="photo">Upload Photo</label>                           
+                            <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
+                        </div>
+
+                        <!-- Full Name Field -->
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                placeholder="Enter student's full name" required>
+                        </div>
+
+                        <!-- Roll Number Field -->
+                        <div class="form-group">
+                            <label for="roll_no">Roll Number</label>
+                            <input type="text" class="form-control" id="roll_no" name="roll_no"
+                                placeholder="Enter roll number" required>
+                        </div>
+
+                        <!-- Mobile Number Field -->
+                        <div class="form-group">
+                            <label for="mobile_number">Mobile Number</label>
+                            <input type="tel" class="form-control" id="mobile_number" name="mobile_number"
+                                placeholder="Enter mobile number" required>
+                        </div>
+
+                        <!-- Description Field -->
+                        <div class="form-group">
+                            <label for="desc">Description</label>
+                            <textarea class="form-control" id="desc" name="desc" rows="3"
+                                placeholder="Write a short description about the student"></textarea>
+                        </div>
+
+                        <!-- College Name Field -->
+                        <div class="form-group">
+                            <label for="college_name">College Name</label>
+                            <input type="text" class="form-control" id="college_name" name="college_name"
+                                placeholder="Enter college name" required>
+                        </div>
+
+                        <!-- Course Branch Field -->
+                        <div class="form-group">
+                            <label for="course_branch">Course Branch</label>
+                            <input type="text" class="form-control" id="course_branch" name="course_branch"
+                                placeholder="Enter course branch" required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-success btn-block">Register Student</button>
+                    </form>
+                    <!-- End of Form -->
+                </div>
+            </div>
+            <!-- End of Card -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
