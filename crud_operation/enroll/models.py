@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models #type: ignore
 
 # Create your models here.
 
@@ -14,16 +14,15 @@ class Branch(models.Model):
 
 class Student(models.Model):
     student_name = models.CharField(max_length=30)
-    # course = models.fore(max_length=10)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    # branch = models.CharField(max_length=20)
-    branch = models.ForeignKey(Branch,  on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='student_photos/')
-    roll_number = models.IntegerField()
+    roll_number = models.IntegerField(unique=True)  
     phone_number = models.IntegerField()
+    college = models.CharField(max_length=50, null=True, blank=True)  
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='student_photos/')
     student_desc = models.TextField(max_length=300)
-    
+
     def __str__(self):
-        return self.student_name        
+        return self.student_name       
     
     

@@ -17,7 +17,7 @@ def view_data(request):
     return render( request, "enroll/view_data.html")
 
 def register_student(request):
-    return HttpResponse("this is the page belong to register students")
+    return render( request, "enroll/std_registration.html")
 
 def login_admin(request):
     return render( request, "enroll/login.html")
