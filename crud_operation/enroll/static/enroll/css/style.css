@@ -1,0 +1,15 @@
+.admin-name{
+    margin: 0;
+    padding: 0;
+    
+}
+.admin-name{
+    margin-right: 10px;
+}
+
+.login-button-section{
+    /* border:  2px solid rebeccapurple; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

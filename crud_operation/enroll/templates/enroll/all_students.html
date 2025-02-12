@@ -1,0 +1,55 @@
+{% extends "./base.html" %}
+
+{% block title %}All Students{% endblock title %}
+
+{% block body %}
+
+<div class="container-fluid p-4">
+    <div class="row g-3">  
+        <!-- Student Card 1 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <img src="..." class="img-fluid rounded-start w-100" alt="Student Image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Student Name</h5>
+                            <p class="card-text">This is a brief student description.</p>
+                            <button>View Data</button>
+                            <div class="btn">
+                              <button>Update</button>
+                              <button>Delete</button>
+                            </div>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Card 2 -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm">
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <img src="..." class="img-fluid rounded-start w-100" alt="Student Image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Student Name</h5>
+                            <p class="card-text">This is a brief student description.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more student cards dynamically here -->
+
+    </div>
+</div>
+
+{% endblock body %}
