@@ -5,53 +5,33 @@
 {% block body %}
 
 <div class="container-fluid p-4">
-    <div class="row g-3">        
+    <div class="row g-4">
+
+        {% for student in students %}
         <!-- Student Card 1 -->
         <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm border-0 rounded-3">
                 <div class="row g-0">
                     <div class="col-md-4 d-flex align-items-center">
-                        <img src="..." class="img-fluid rounded-start w-100" alt="Student Image">
+                        <img src="{{student.photo.url}}" class="img-fluid rounded-start w-100" alt="Student Image">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Student Name</h5>
-                            <p class="card-text">This is a brief student description.</p>
-                            <button>View Data</button>
-                            <div class="btn">
-                              <button>Update</button>
-                              <button>Delete</button>
+                            <h5 class="card-title text-primary">{{student.student_name}}</h5>
+                            <p class="card-text">{{student.student_desc | truncatechars:100}}</p>
+                            <button class="btn btn-outline-primary btn-sm mb-2">View Data</button>
+                            <div class="btn-group">
+                                <button class="btn btn-warning btn-sm">Update</button>
+                                <button class="btn btn-danger btn-sm">Delete</button>
                             </div>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text"><small class="text-muted">{{student.update_at}}</small></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
 
-        <!-- Student Card 2 -->
-         <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm">
-                <div class="row g-0">
-                    <div class="col-md-4 d-flex align-items-center">
-                        <img src="..." class="img-fluid rounded-start w-100" alt="Student Image">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Student Name</h5>
-                            <p class="card-text">This is a brief student description.</p>
-                            <button>View Data</button>
-                            <div class="btn">
-                              <button>Update</button>
-                              <button>Delete</button>
-                            </div>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
 
         <!-- Add more student cards dynamically here -->
 
