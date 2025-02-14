@@ -1,0 +1,54 @@
+# Python Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+
+# Django stuff:
+*.log
+*.pot
+*.py[cod]
+*.sqlite3
+db.sqlite3-journal
+media
+staticfiles
+
+# Virtual Environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+
+# PyCharm
+.idea/
+
+# mypy
+.mypy_cache/
+
+# pytest
+.cache/
+
+# Django migrations
+*/migrations/*
+
+# Secret files (e.g., settings.py with sensitive keys)
+*.env
+*.ini
+*.cfg
+
+# Miscellaneous
+*.bak
+*.swp
