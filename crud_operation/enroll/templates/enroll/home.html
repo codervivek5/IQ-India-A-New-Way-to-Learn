@@ -1,8 +1,46 @@
 {% extends "./base.html" %}
+{% load static %}
 
-{% block title %} Home{% endblock title %} 
+{% block title %} Home {% endblock title %}
 
 {% block body %}
+<div class="container text-center mt-5">
+    <h1 class="text-primary fw-bold">Welcome to Student Management System 🎓</h1>
+    <p class="lead text-muted">Manage student records efficiently with ease.</p>
 
-<p>this is home page</p>
+    <div class="d-flex justify-content-center my-4">
+        <img src="{% static "enroll/image/image.png" %}" class="shadow-img img-fluid" alt="Student Image" style="width: 150px; height: auto;">
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-3 p-3">
+                <h5 class="text-primary">📚 Add Students</h5>
+                <p class="text-muted">Register new students effortlessly.</p>
+                <a href="{% url 'register_student' %}" class="btn btn-outline-primary">Add Student</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-3 p-3">
+                <h5 class="text-success">📜 View All Students</h5>
+                <p class="text-muted">Access and manage student records.</p>
+                <a href="{% url 'all_student' %}" class="btn btn-outline-success">View Students</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 rounded-3 p-3">
+                <h5 class="text-danger">🔑 Admin Login</h5>
+                <p class="text-muted">Securely manage student data.</p>
+                <a href="{% url 'login_admin' %}" class="btn btn-outline-danger">Login</a>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
+
+
+
+
+
 {% endblock body %}
