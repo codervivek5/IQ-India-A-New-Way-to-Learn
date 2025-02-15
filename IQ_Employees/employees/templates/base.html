@@ -14,12 +14,12 @@
     <title> {% block title %} {% endblock title %}</title>
 </head>
 
-<body>
+<body >
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                 IQ-ERP
+            <a class="navbar-brand" href="{% url "home" %}">
+                IQ-ERP
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -29,35 +29,29 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url "home" %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">About</a>
+                        <a class="nav-link active" href="{% url "add_emp" %}">Add Employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Services</a>
+                        <a class="nav-link active" href="{% url "all_emp" %}">All Employee</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Contact</a>
-                    </li>
-                  
                 </ul>
-                <!-- Login Button -->
-                <button class="btn btn-success ms-2" type="button">Login</button>
+                 <!-- Login Button -->
+                <a class="btn btn-success ms-2" type="button" href="{% url "login" %}">Login</a>
             </div>
         </div>
     </nav>
  
+    
 
     {% block body %}{% endblock body %}
 
-    <footer class="bg-light py-3 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">© 2025 IQ-ERP. All rights reserved.</p>
-            <small><a href="#" class="text-muted">Privacy Policy</a> | <a href="#" class="text-muted">Terms of Service</a></small>
-        </div>
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">© 2025 IQ-ERP | All Rights Reserved</p>
     </footer>
-    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -66,7 +60,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-
 </body>
+
 
 </html>

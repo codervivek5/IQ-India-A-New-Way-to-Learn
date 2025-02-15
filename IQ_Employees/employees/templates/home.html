@@ -1,43 +1,70 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<!-- Hero Section -->
+<div class="container-fluid bg-primary text-white text-center py-5">
+    <h1 class="display-4 fw-bold">Welcome to IQ-ERP</h1>
+    <p class="lead">Your one-stop solution for managing employee data efficiently.</p>
+    <a href="{% url 'add_emp' %}" class="btn btn-light btn-lg shadow-lg mt-3">Get Started</a>
+</div>
+
+<!-- Features Section -->
 <div class="container my-5">
-    <h1 class="text-center">Welcome to IQ-ERP</h1>
-    <p class="lead text-center">This is your one-stop solution for managing employee data.</p>
-
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Employee Management</h5>
-                    <p class="card-text">Manage and track employee details easily.</p>
-                    <a href="#" class="btn btn-primary">Explore</a>
-                </div>
-            </div>
+    <div class="row align-items-center">
+        <!-- Left Column for Text -->
+        <div class="col-md-6">
+            <h3 class="mb-4 fw-bold text-primary wow fadeInLeft">Efficient Employee Management</h3>
+            <p class="text-muted">Our platform helps you track employee performance, store important records, and manage HR tasks with ease.</p>
+            <ul class="list-unstyled">
+                <li>✅ Employee Database Management</li>
+                <li>✅ Performance Tracking</li>
+                <li>✅ Secure and Scalable</li>
+            </ul>
+            <a href="#" class="btn btn-primary mt-3">Explore Features</a>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Payroll System</h5>
-                    <p class="card-text">Automate salary calculations and track payments.</p>
-                    <a href="#" class="btn btn-primary">Explore</a>
-                </div>
+        <!-- Right Column for Image -->
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/emp.png' %}" alt="Employee Management" class="img-fluid rounded shadow-lg wow fadeInRight" style="max-width: 80%;">
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="container my-5 text-center">
+    <h2 class="fw-bold text-primary wow fadeInUp">What Our Users Say</h2>
+    <p class="text-muted">Trusted by HR professionals and business owners worldwide.</p>
+
+    <div class="row">
+        <div class="col-md-4 wow fadeInUp">
+            <div class="card shadow-lg border-0 p-4">
+                <p class="fw-bold">"IQ-ERP has simplified our HR management like never before!"</p>
+                <small class="text-muted">- John Doe, HR Manager</small>
             </div>
         </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Reports</h5>
-                    <p class="card-text">Generate reports based on employee data.</p>
-                    <a href="#" class="btn btn-primary">Explore</a>
-                </div>
+        <div class="col-md-4 wow fadeInUp">
+            <div class="card shadow-lg border-0 p-4">
+                <p class="fw-bold">"A must-have tool for tracking employee performance efficiently."</p>
+                <small class="text-muted">- Sarah Smith, CEO</small>
+            </div>
+        </div>
+        <div class="col-md-4 wow fadeInUp">
+            <div class="card shadow-lg border-0 p-4">
+                <p class="fw-bold">"The best investment for our growing company’s HR needs!"</p>
+                <small class="text-muted">- Michael Lee, Startup Founder</small>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<!-- Include WOW.js for Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 {% endblock %}
