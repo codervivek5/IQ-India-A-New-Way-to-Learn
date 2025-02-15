@@ -3,6 +3,7 @@ from .models import *
 from django.shortcuts import render, get_object_or_404 #type: ignore
 from .forms import EmployeeRegistrationForm
 from django.contrib import messages #type: ignore
+from django.contrib.auth import logout #type: ignore
  
 # Create your views here.
 def home(request):
@@ -45,6 +46,10 @@ def add_emp(request):
 def login(request):
     return render(request, "login.html")
 
+def logout_view(request): 
+    logout(request)  
+    messages.success(request, "You have been logged out.")
+    return redirect("login")
 
 def sign_up(request):
     return render(request, "sign_up.html")
