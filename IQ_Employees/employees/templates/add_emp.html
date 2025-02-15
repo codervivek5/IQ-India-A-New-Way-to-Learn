@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Employee Registration{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center text-primary">Employee Registration</h2>
+
+    <!-- Display Messages -->
+    {% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="card shadow p-4">
+        <form method="POST" class="row g-3">
+            {% csrf_token %}
+            
+            <div class="col-md-6">
+                <label for="emp_name" class="form-label">Full Name</label>
+                {{ form.emp_name }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="emp_profile" class="form-label">Profile</label>
+                {{ form.emp_profile }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="emp_qualification" class="form-label">Qualification</label>
+                {{ form.emp_qualification }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="emp_experience" class="form-label">Experience (Years)</label>
+                {{ form.emp_experience }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="emp_mobile_no" class="form-label">Mobile Number</label>
+                {{ form.emp_mobile_no }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="emp_email" class="form-label">Email</label>
+                {{ form.emp_email }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="emp_salary" class="form-label">Salary</label>
+                {{ form.emp_salary }}
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-lg">Register Employee</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

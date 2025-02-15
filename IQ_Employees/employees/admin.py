@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin #type: ignore
 from .models import Employee, Qualification
 
 # Employee Admin
@@ -9,12 +9,12 @@ class EmployeeAdmin(admin.ModelAdmin):
         'emp_name',
         'emp_profile',
         'emp_qualification',
-        'emp_mobilemp_no',
+        'emp_mobile_no',
         'emp_salary',
         'emp_email',
         'emp_experience',  # This should be fine as it corresponds to the field in the Employee model
     )
-    search_fields = ['emp_name', 'emp_email', 'emp_mobilemp_no']
+    search_fields = ['emp_name', 'emp_email', 'emp_mobile_no']
     # list_filter = ['emp_qualification', 'emp_profile']
 
 

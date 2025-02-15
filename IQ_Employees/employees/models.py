@@ -15,7 +15,7 @@ class Employee(models.Model):
     emp_name = models.CharField(max_length=50)
     emp_profile = models.CharField(max_length=20)
     emp_qualification = models.ForeignKey(Qualification, on_delete=models.CASCADE)
-    emp_mobilemp_no = models.CharField(max_length=10, unique=True)
+    emp_mobile_no = models.CharField(max_length=10, unique=True)
     emp_salary = models.PositiveIntegerField()
     emp_email = models.EmailField(max_length = 254, unique=True)
     emp_experience = models.PositiveIntegerField()
