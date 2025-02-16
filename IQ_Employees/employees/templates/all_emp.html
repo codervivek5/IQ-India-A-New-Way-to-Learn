@@ -25,12 +25,13 @@
                 <th>Qualification</th>
                 <th>Experience (Years)</th>
                 <th>Mobile No.</th>
-                <th>Email</th>
+                {% comment %} <th>Email</th> {% endcomment %}
                 <th>Salary (₹)</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody class="text-center">
+
             {% for employee in employees %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
@@ -38,8 +39,8 @@
                 <td>{{ employee.emp_profile }}</td>
                 <td>{{ employee.emp_qualification }}</td>
                 <td>{{ employee.emp_experience }}</td>
-                <td>{{ employee.emp_mobilemp_no }}</td>
-                <td>{{ employee.emp_email }}</td>
+                <td>{{ employee.emp_mobile_no }}</td>
+                {% comment %} <td>{{ employee.emp_email }}</td> {% endcomment %}
                 <td>₹{{ employee.emp_salary}}</td>
 
                 <td>
@@ -47,7 +48,13 @@
                     <a href="{% url 'employee_edit' employee.emp_id %}" class="btn btn-warning btn-sm">Edit</a>
                     <a href="{% url 'employee_delete' employee.emp_id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a> {% endcomment %}
           
-                    <a href="#" class="btn btn-info btn-sm">View</a>
+                    {% if employee.emp_id %}
+                        <a href="{% url 'employee_detail' employee.emp_id %}" class="btn btn-info btn-sm">View</a>
+                    {% else %}
+                        <span class="text-danger">No ID</span>
+                    {% endif %}
+
+
                     <a href="#" class="btn btn-warning btn-sm">Edit</a>
                     <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
                 </td>

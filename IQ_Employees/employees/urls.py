@@ -8,7 +8,7 @@ urlpatterns = [
     path('employee-details/<uuid:emp_id>/', views.employee_detail, name='employee_detail'),
 
 
-    path('login/', views.login, name='login'),
+    path('login/', views.login_view, name='login'),
     path("logout/", views.logout_view, name="logout"),
     path('signup/', views.sign_up, name='sign_up'),
 

@@ -3,7 +3,8 @@ from .models import *
 from django.shortcuts import render, get_object_or_404 #type: ignore
 from .forms import EmployeeRegistrationForm
 from django.contrib import messages #type: ignore
-from django.contrib.auth import logout #type: ignore
+from django.contrib.auth import logout,authenticate,login #type: ignore
+from django.contrib.auth.models import User #type: ignore
  
 # Create your views here.
 def home(request):
@@ -43,7 +44,19 @@ def add_emp(request):
     return render(request, "add_emp.html", {'form':form})
 
 
-def login(request):
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get("username") 
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request,user)
+            messages.success(request, "Login Successful !")
+            return redirect("home")
+        else:
+            return render(request,"login.html",{"error":"Invalid credantials"})
     return render(request, "login.html")
 
 def logout_view(request): 
@@ -52,5 +65,22 @@ def logout_view(request):
     return redirect("login")
 
 def sign_up(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        if User.objects.filter(username=username).exists():
+            messages.warning(request,"User already exist !")
+            return render(request,"sign_up.html")
+        
+        user = User.objects.create_user(username=username,password=password,first_name=name)
+        user.save()
+
+        # Authenticate
+        user = authenticate(request, username=username, password=password)
+        if user:
+            return redirect("home")
+        
     return render(request, "sign_up.html")
     
