@@ -2,7 +2,7 @@
 {% block title %}All Employees{% endblock title %}
 
 {% block body %}
-<div class="container mt-5">
+<div class="container mt-5 mb-5" >
     <h2 class="mb-4 text-center text-primary">Employee List</h2>
 
     <!-- Search Bar -->
@@ -55,8 +55,9 @@
                     {% endif %}
 
 
-                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+                    <a href="{% url 'edit_employee' employee.emp_id %}" class="btn btn-warning btn-sm">Edit</a>
+
+                    {% comment %} <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a> {% endcomment %}
                 </td>
                 
             </tr>
@@ -69,7 +70,7 @@
     </table>
 
     <!-- Add Employee Button -->
-    <div class="text-center mt-3">
+    <div class="text-center mt-5">
         <a href="{% url 'add_emp' %}" class="btn btn-success btn-lg">
             <i class="bi bi-plus-lg"></i> Add Employee
         </a>

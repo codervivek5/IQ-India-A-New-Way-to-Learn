@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Employee Registration{% endblock %}
+{% block title %}Edit Employee{% endblock %}
 
 {% block body %}
 <div class="container mt-5">
-    <h2 class="mb-4 text-center text-primary">Employee Registration</h2>
+    <h2 class="mb-4 text-center text-primary">Edit Employee: {{ employee.emp_name }}</h2>
 
     <!-- Display Messages -->
     {% if messages %}
@@ -18,7 +18,7 @@
     {% endif %}
 
     <div class="card shadow p-4 mb-4">
-        <form method="POST" class="row g-3 ">
+        <form method="POST" class="row g-3">
             {% csrf_token %}
             
             <div class="col-md-6">
@@ -57,7 +57,8 @@
             </div>
 
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btn-lg">Register Employee</button>
+                <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+                <a href="{% url 'all_emp' %}" class="btn btn-secondary btn-lg">Cancel</a>
             </div>
         </form>
     </div>

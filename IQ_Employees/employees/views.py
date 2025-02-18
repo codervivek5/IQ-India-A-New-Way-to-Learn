@@ -19,18 +19,47 @@ def all_emp(request):
 def employee_detail(request,emp_id):
     # employees = Employee.objects.all()
     employee = get_object_or_404(Employee, emp_id=emp_id)
+    
     return render(request, "employee_detail.html",{'employee':employee})
+
+def edit_employee(request, emp_id):
+    employee = get_object_or_404(Employee, emp_id=emp_id)
+    
+    if request.method == 'POST':
+        form = EmployeeRegistrationForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+            return redirect('all_emp')  # Redirect to employee list
+    else:
+        form = EmployeeRegistrationForm(instance=employee)
+    return render(request, 'edit_employee.html', {'form': form, 'employee': employee})
+
+def delete_employee(request, emp_id):
+    employee = get_object_or_404(Employee, emp_id=emp_id)
+    
+    try:    
+        if request.method == 'POST':  # Confirm before deleting
+            employee.delete()
+            return redirect('all_emp') 
+        
+    except Exception as e:
+        print("error occured: ", e )
+    
+    print(employee.delete())
+    return render(request, 'home.html', {'employee': employee})
+
 
 def add_emp(request):
     if request.method == 'POST':
         form = EmployeeRegistrationForm(request.POST)   
         
-        emp_email = Employee.objects.filter(emp_mobile_no = request.POST.get('emp_mobile_no')).exists()
-        email_exits = Employee.objects.filter(emp_email = request.POST.get('emp_email')).exists()
+        email_mo_no = Employee.objects.filter(emp_mobile_no = request.POST.get('emp_mobile_no')).exists()
+        emp_email   = Employee.objects.filter(emp_email = request.POST.get('emp_email')).exists()
         
-        if emp_email :
-            messages.error(request, "Employee with this Mobile Number already exists!")           
-        elif email_exits:
+        if email_mo_no :
+            messages.error(request, "Employee with this Mobile Number already exists!")  
+                     
+        elif emp_email:
             messages.error(request, "Employee with this Email already exists!")  
                  
         elif form.is_valid():
@@ -83,4 +112,3 @@ def sign_up(request):
             return redirect("home")
         
     return render(request, "sign_up.html")
-    
