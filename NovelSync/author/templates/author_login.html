@@ -9,18 +9,20 @@
     <form method="POST">
       {% csrf_token %}
       
-      <!-- Email input -->
+      {% comment %} <!-- Email input -->
       <div class="form-floating mb-3">
-        <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required>
-        <label for="email">Email address</label>
+        <input type="text" id="email" name="usename" class="form-control" placeholder="Username" required>
+        <label for="email">Username</label>
       </div>
 
       <!-- Password input -->
       <div class="form-floating mb-3">
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         <label for="password">Password</label>
-      </div>
+      </div> {% endcomment %}
 
+
+      {{ form.as_p }}
       <!-- Remember Me & Forgot Password -->
       <div class="d-flex justify-content-between mb-3">
         <div class="form-check">
